@@ -7,7 +7,6 @@ const modelRoute = express.Router();
 let Model = require('../model/model');
 
 /* CRUD */
-
 // getAllModel
 modelRoute.route('/').get((req, res) => {
     Model.find((error, data) => {
@@ -68,3 +67,6 @@ modelRoute.route('/delete-model').delete((req, res, next) => {
         }
     })
 });
+
+//export routes
+module.exports = modelRoute;

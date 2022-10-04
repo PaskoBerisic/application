@@ -26,19 +26,20 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
-export class BookListComponent implements OnInit {
+export class BookListComponent implements OnInit  {
   displayedColumns: string[] = ['id', 'name', 'price', 'description', 'action'];
-  dataSource: any;
-
+  dataSource: any = [];
   Books:any = [];
-  constructor(private bookService: BookService) { }
+
+  constructor(private bookService: BookService) {}
   ngOnInit(): void {
     this.bookService.GetAll().subscribe(res => {
       console.log(res)
       this.Books =res;
+      this.dataSource =res;
     });   
-    this.dataSource = this.Books; 
   }
+  
   delete(id:any, i:any) {
     console.log(id);
     if(window.confirm('Do you want to go ahead?')) {

@@ -56,7 +56,7 @@ modelRoute.route('/update-model/:id').put((req, res, next) => {
 });
 
 // deleteModel
-modelRoute.route('/delete-model').delete((req, res, next) => {
+modelRoute.route('/delete-model/:id').delete((req, res, next) => {
     Model.findByIdAndRemove(req.params.id, (error, data) => {
         if (error) {
             return next(error);

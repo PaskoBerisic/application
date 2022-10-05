@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "633dda881f57d4f67e9d8b31"
+  },
+  "description": "Description field_1",
+  "name": "Cinderella",
+  "price": 99
+},{
+  "_id": {
+    "$oid": "633ddb211f57d4f67e9d8b33"
+  },
+  "description": "Description field_2",
+  "name": "Seven dwarfs",
+  "price": 10
+}]

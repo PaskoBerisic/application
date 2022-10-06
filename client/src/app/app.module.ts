@@ -14,12 +14,20 @@ import { BookListComponent } from './components/books/book-list/book-list.compon
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { LandingComponent } from './shared/landing/landing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    BookListComponent
+    BookListComponent,
+    AdminDashboardComponent,
+    SidebarComponent,
+    FooterComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

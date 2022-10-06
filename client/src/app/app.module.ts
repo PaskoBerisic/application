@@ -20,6 +20,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { LandingComponent } from './shared/landing/landing.component';
 import { LoginComponent } from './shared/login/login.component';
 import { RegisterComponent } from './shared/register/register.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { RegisterComponent } from './shared/register/register.component';
     FooterComponent,
     LandingComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

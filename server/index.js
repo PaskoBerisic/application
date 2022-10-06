@@ -18,6 +18,8 @@ moongose.connect('mongodb://127.0.0.1:27017/mydatabase')
 
 //define routes
 const modelRoute = require('./routes/models.routes');
+const usersRoute = require('./routes/users.routes');
+
 
 //define app
 const app = express();
@@ -31,7 +33,9 @@ app.use(cors())
 // Static directory path
 app.use(express.static(path.join(__dirname, 'dist/application')))
 // API root
-app.use('/api', modelRoute);
+app.use('/api/models', modelRoute);
+app.use('/api/users', usersRoute);
+
 // PORT
 const port = process.env.PORT || 8000
 app.listen(port, () => {

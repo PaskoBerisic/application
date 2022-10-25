@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/core/services/login.service';
+import { ProductsService } from 'src/app/core/services/products.service';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -9,17 +10,28 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class UserListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'username', 'password', 'role', 'action'];
+  displayedColumns2: string[] = ['id', 'name', 'productCategory', 'price', 'action'];
+
 
   dataSource: any = [];
+  dataSource2: any = [];
+
   Users:any = [];
-  constructor(private userService: UserService, private loginService: LoginService) { }
+  constructor(private userService: UserService, private loginService: LoginService, private productService: ProductsService) { }
 
   ngOnInit(): void {
     this.userService.GetAll().subscribe(res => {
       console.log(res)
       this.Users =res;
       this.dataSource =res;
+    });  
+    this.productService.GetAll().subscribe(res => {
+      console.log(res)
+      this.Users =res;
+      this.dataSource2 =res;
     });   
+ 
+
   }
 
   delete(id:any, i:any) {

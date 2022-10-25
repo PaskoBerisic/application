@@ -1,13 +1,13 @@
 const express = require('express')
 const app = express();
-const usersRoute = express.Router();
+const orderRoute = express.Router();
 
-let User = require('../model/user');
+let Order = require('../model/order');
 
 /* CRUD */
-// getAllUsers
-usersRoute.route('/').get((req, res) => {
-    User.find((error, data) => {
+// getAllProduct
+orderRoute.route('/').get((req, res) => {
+    Order.find((error, data) => {
         if (error) {
             return next(error)
         } else {
@@ -16,9 +16,9 @@ usersRoute.route('/').get((req, res) => {
     })
 });
 
-// getUserlById
-usersRoute.route('/users/:id').get((req, res) => {
-    User.findById(req.params.id, (error, data) => {
+// getProductById
+orderRoute.route('/order/:id').get((req, res) => {
+    Order.findById(req.params.id, (error, data) => {
         if (error) {
             return next(error)
         } else {
@@ -27,9 +27,9 @@ usersRoute.route('/users/:id').get((req, res) => {
     })
 });
 
-// addUser
-usersRoute.route('/add-user').post((req, res, next) => {
-    User.create(req.body, (error, data) => {
+// addProduct
+orderRoute.route('/add-order').post((req, res, next) => {
+    Order.create(req.body, (error, data) => {
         if (error) {
             return next(error)
         } else {
@@ -38,9 +38,9 @@ usersRoute.route('/add-user').post((req, res, next) => {
     })
 });
 
-// updateUser
-usersRoute.route('/update-user/:id').put((req, res, next) => {
-    User.findByIdAndUpdate(req.params.id, {
+// updateProduct
+orderRoute.route('/update-order/:id').put((req, res, next) => {
+    Order.findByIdAndUpdate(req.params.id, {
         $set: req.body
     }, (error, data) => {
         if (error) {
@@ -53,9 +53,9 @@ usersRoute.route('/update-user/:id').put((req, res, next) => {
     })
 });
 
-// deleteUser
-usersRoute.route('/delete-user/:id').delete((req, res, next) => {
-    User.findByIdAndRemove(req.params.id, (error, data) => {
+// deleteProduct
+orderRoute.route('/delete-order/:id').delete((req, res, next) => {
+    Order.findByIdAndRemove(req.params.id, (error, data) => {
         if (error) {
             return next(error);
         } else {
@@ -66,4 +66,4 @@ usersRoute.route('/delete-user/:id').delete((req, res, next) => {
     })
 });
 
-module.exports = usersRoute;
+module.exports = orderRoute;

@@ -5,6 +5,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -46,6 +47,8 @@ import { UserListComponent } from './components/user-list/user-list.component';
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
+    MatProgressSpinnerModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,13 +1,13 @@
 const express = require('express')
 const app = express();
-const usersRoute = express.Router();
+const productRoute = express.Router();
 
-let User = require('../model/user');
+let Product = require('../model/product');
 
 /* CRUD */
-// getAllUsers
-usersRoute.route('/').get((req, res) => {
-    User.find((error, data) => {
+// getAllProduct
+productRoute.route('/').get((req, res) => {
+    Product.find((error, data) => {
         if (error) {
             return next(error)
         } else {
@@ -16,9 +16,9 @@ usersRoute.route('/').get((req, res) => {
     })
 });
 
-// getUserlById
-usersRoute.route('/users/:id').get((req, res) => {
-    User.findById(req.params.id, (error, data) => {
+// getProductById
+productRoute.route('/product/:id').get((req, res) => {
+    Product.findById(req.params.id, (error, data) => {
         if (error) {
             return next(error)
         } else {
@@ -27,9 +27,9 @@ usersRoute.route('/users/:id').get((req, res) => {
     })
 });
 
-// addUser
-usersRoute.route('/add-user').post((req, res, next) => {
-    User.create(req.body, (error, data) => {
+// addProduct
+productRoute.route('/add-product').post((req, res, next) => {
+    Product.create(req.body, (error, data) => {
         if (error) {
             return next(error)
         } else {
@@ -38,9 +38,9 @@ usersRoute.route('/add-user').post((req, res, next) => {
     })
 });
 
-// updateUser
-usersRoute.route('/update-user/:id').put((req, res, next) => {
-    User.findByIdAndUpdate(req.params.id, {
+// updateProduct
+productRoute.route('/update-product/:id').put((req, res, next) => {
+    Product.findByIdAndUpdate(req.params.id, {
         $set: req.body
     }, (error, data) => {
         if (error) {
@@ -53,9 +53,9 @@ usersRoute.route('/update-user/:id').put((req, res, next) => {
     })
 });
 
-// deleteUser
-usersRoute.route('/delete-user/:id').delete((req, res, next) => {
-    User.findByIdAndRemove(req.params.id, (error, data) => {
+// deleteProduct
+productRoute.route('/delete-product/:id').delete((req, res, next) => {
+    Product.findByIdAndRemove(req.params.id, (error, data) => {
         if (error) {
             return next(error);
         } else {
@@ -66,4 +66,4 @@ usersRoute.route('/delete-user/:id').delete((req, res, next) => {
     })
 });
 
-module.exports = usersRoute;
+module.exports = productRoute;

@@ -19,4 +19,4 @@ let User = new Schema({
     collection: 'users'
 })
 
-module.exports = moongose.model('Users', User);
+module.exports = moongose.model('User', User);

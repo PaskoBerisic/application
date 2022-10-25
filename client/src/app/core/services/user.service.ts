@@ -1,16 +1,17 @@
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpErrorResponse, HttpClient } from '@angular/common/http'
-import { Book } from 'src/app/model/book/book.model';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+import { User } from 'src/app/model/user/user.model';
 
-const REST_API='http://localhost:8000/api/models';
+const REST_API='http://localhost:8000/api/users';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookService {
+export class UserService {
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
+
 
   constructor(private http: HttpClient) { }
 
@@ -28,20 +29,20 @@ export class BookService {
     );
   }
 
-  Add(data: Book): Observable<any> {
-    let API_URL = `${REST_API}/add-model`;
+  Add(data: User ): Observable<any> {
+    let API_URL = `${REST_API}/add-user`;
     return this.http.post(API_URL, data)
     .pipe(catchError(this.handleError));
 }
 
   Update(id: any, data: any): Observable<any> {
-    let API_URL = `${REST_API}/update-model/${id}`;
+    let API_URL = `${REST_API}/update-user/${id}`;
     return this.http.put(API_URL, data, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
   }
 
   Delete(id: any): Observable<any> {
-    let API_URL = `${REST_API}/delete-model/${id}`;
+    let API_URL = `${REST_API}/delete-user/${id}`;
     return this.http.delete(API_URL, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
   }

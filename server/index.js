@@ -45,7 +45,7 @@ app.use('/api/productCategories', productCategoriesRoute);
 app.use('/api/general', generalRoute);
 app.use('/api/orders', ordersRoute);
 
-// PORT
+// PORT jjjj
 const port = process.env.PORT || 8000
 app.listen(port, () => {
     console.log('Listening on port ' + port);
